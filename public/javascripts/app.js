@@ -1,5 +1,6 @@
 angular.module('postApp', [
 	'ui.router',
+	'ngResource',
 	'postApp.services',
 	'postApp.controllers'
 ])
@@ -7,10 +8,8 @@ angular.module('postApp', [
 		//Routing
 		$urlRouterProvider.otherwise('/');
 		$stateProvider
-			.state('', {
-
-			})
-			.state('', {
-
-			})
+			.state('posts', {
+				url: '/',
+				templateUrl: 'html/test.html'
+			});
 	});
