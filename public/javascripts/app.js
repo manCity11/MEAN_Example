@@ -8,8 +8,14 @@ angular.module('postApp', [
 		//Routing
 		$urlRouterProvider.otherwise('/');
 		$stateProvider
-			.state('posts', {
+			.state('list', {
 				url: '/',
-				templateUrl: 'html/test.html'
+				templateUrl: 'html/post-list.html',
+				controller: 'PostListCtrl'
+			})
+			.state('detail', {
+				url: '/post/:slug/',
+				templateUrl: 'html/post-detail.html',
+				controller: 'PostDetailCtrl'
 			});
 	});
