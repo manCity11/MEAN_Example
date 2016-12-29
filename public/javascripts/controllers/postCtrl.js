@@ -1,5 +1,6 @@
 var postCtrl = angular.module('postApp.controllers', [
-	'ui.router'
+	'ui.router',
+	'ui.bootstrap',
 ]);
 
 postCtrl

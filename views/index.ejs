@@ -6,10 +6,11 @@
 	<link rel='stylesheet' href='/stylesheets/style.css' />
 	<script src='/angular/angular.min.js'></script>
 	<script src='angular-ui-router/release/angular-ui-router.min.js'></script>
+	<script src='angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
 	<script src='angular-resource/angular-resource.min.js'></script>
 	<script src='/javascripts/app.js'></script>
-	<script src='/javascripts/services.js'></script>
-	<script src='/javascripts/controllers.js'></script>
+	<script src='/javascripts/models/post.js'></script>
+	<script src='/javascripts/controllers/postCtrl.js'></script>
 </head>
   <body ng-app="postApp">
 	<nav class="navbar navbar-default">
@@ -35,7 +36,7 @@
 				</form>
 				<div class="navbar-right">
 					<!-- If not login -->
-					<button type="button" class="btn btn-primary navbar-btn" style="margin-right: 0.50cm;">Button</button>
+					<button type="button" class="btn btn-primary navbar-btn" style="margin-right: 0.50cm;">Connect</button>
 				</div>
 			</div>
 		</div>

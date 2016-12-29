@@ -1,5 +1,6 @@
 angular.module('postApp', [
 	'ui.router',
+	'ui.bootstrap',
 	'ngResource',
 	'postApp.services',
 	'postApp.controllers'
