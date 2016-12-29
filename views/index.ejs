@@ -10,10 +10,12 @@
 	<script src='angular-resource/angular-resource.min.js'></script>
 	<script src='/javascripts/app.js'></script>
 	<script src='/javascripts/models/post.js'></script>
+	<script src='/javascripts/models/token.js'></script>
 	<script src='/javascripts/controllers/postCtrl.js'></script>
+	<script src='/javascripts/controllers/connexion.js'></script>
 </head>
   <body ng-app="postApp">
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" ng-controller="FormCtrl">
 		<div class="container-fluid">
 			<div vlass="navbar-header">
 				<a class="navbar-brand" href="#">My Site</a>
@@ -36,7 +38,7 @@
 				</form>
 				<div class="navbar-right">
 					<!-- If not login -->
-					<button type="button" class="btn btn-primary navbar-btn" style="margin-right: 0.50cm;">Connect</button>
+					<button type="button" class="btn btn-primary navbar-btn" style="margin-right: 0.50cm;" ng-click="form()">Connect</button>
 				</div>
 			</div>
 		</div>

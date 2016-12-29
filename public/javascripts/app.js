@@ -2,10 +2,15 @@ angular.module('postApp', [
 	'ui.router',
 	'ui.bootstrap',
 	'ngResource',
-	'postApp.services',
-	'postApp.controllers'
+	'post.model',
+	'post.controllers',
+	'token.model',
+	'connexion.controllers'
 ])
-	.config(function($stateProvider, $urlRouterProvider){
+	.config(function($stateProvider, $urlRouterProvider, $qProvider){
+		//for modal errors
+		$qProvider.errorOnUnhandledRejections(false);
+		
 		//Routing
 		$urlRouterProvider.otherwise('/');
 		$stateProvider

@@ -1,6 +1,5 @@
-var postCtrl = angular.module('postApp.controllers', [
+var postCtrl = angular.module('post.controllers', [
 	'ui.router',
-	'ui.bootstrap',
 ]);
 
 postCtrl
@@ -21,13 +20,11 @@ postCtrl
 
 		$scope.delClick = function(){
 			Post.delete({}, {slug: $scope.postTmp.slug}).$promise
-				.then(function(err){
-					if(err){
-						console.log("Not ok");
-					}
-					else{
-						console.log("ok");
-					}
+				.then(function(){
+					console.log("Sucessfully removed");
 				});
+				/*.catch(function(error){
+					console.log(error);
+				});*/
 		};
 	});
