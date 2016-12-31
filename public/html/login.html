@@ -1,10 +1,14 @@
 <div class="modal-header">
-	<h4 class="modal-title">Header</h3>
+	<button type="button" class="close" ng-click="cancel()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" style="text-align: center;">Sign in</h3>
 </div>
 <div class="modal-body">
-	<p>vjkhvkjrqzk</p>
+	<input type="text" class="form-control" placeholder="Username..." ng-model="username"/>
+	<span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+	<input type="password" class="form-control" placeholder="Password..." ng-model="username"/>
 </div>
-<div class="modal-footer">
-	<button type="button" class="btn btn-warning" ng-click="cancel()">Cancel</button> 
-	<button type="button" class="btn btn-primary" ng-click="login()">Login</button> 
+<div class="modal-footer"> 
+	<button type="button" class="btn btn-block btn-primary" ng-click="login()">Login</button> 
 </div>
