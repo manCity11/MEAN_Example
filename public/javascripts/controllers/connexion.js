@@ -4,34 +4,37 @@ var connexionCtrl = angular.module('connexion.controllers', [
 ]);
 
 connexionCtrl
-	.controller('FormCtrl', function FormCtrl($scope, $uibModal){
+	.controller('FormCtrl', function FormCtrl($scope, $rootScope, $uibModal){
 			$scope.form = function(){
 				var modalInstance = $uibModal.open({
 					templateUrl: 'html/login.html',
-					controller: function($scope, $uibModalInstance){
+					controller: function($scope, $rootScope, $uibModalInstance, Token){
 						$scope.cancel = function(){
 							$uibModalInstance.dismiss('cancel');
 						};
 
 						$scope.login = function(){
-							console.log("login");
+							var user = new Token();
+							user.username = $scope.username;
+							user.password = $scope.password;
+
+							user.$create().then(function(data){
+								if(data.token){
+									$rootScope.token = data.token;
+									$scope.cancel();
+								}
+							}, function(error){
+								console.log("Authentication failed");
+							});
 						};
 					}
 				});
 			};
-	})
 
-	.controller('LoginCtrl', function LoginCtrl($scope, $rootScope, Token){
-		$scope.login = function(){
-			var user = new Token();
-			user.username = $scope.username;
-			user.password = $scope.password;
-
-			user.create().$promise
-				.then(function(result){
-					$rootScope.user = result;
-				});
-		};
+			$scope.logout = function(){
+				$rootScope.token = null;
+				console.log($rootScope.token);
+			};
 	})
 
 	.controller('LogoutCtrl', function LogoutCtrl($scope, $rootScope, Token){

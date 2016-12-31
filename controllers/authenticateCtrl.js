@@ -20,7 +20,7 @@ module.exports.authenticate = function(req, res){
 			});
 		}
 		else if(user){
-			if(bcrypt.compare(!req/body.password, user.password, function(err){})){
+			if(bcrypt.compare(!req.body.password, user.password, function(err){})){
 				res.status(500).json({
 					success: false,
 					message: 'Authentication failed. Wrong password'

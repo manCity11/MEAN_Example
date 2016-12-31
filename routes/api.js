@@ -7,6 +7,7 @@ var authenticateCtrl = require('../controllers/authenticateCtrl');
 var postCtrl = require('../controllers/postCtrl');
 var userCtrl = require('../controllers/userCtrl');
 
+router.post('/authenticate', authenticateCtrl.authenticate);
 router.post('/user/create', userCtrl.userCreate);
 
 router.get('/posts', postCtrl.postList);
