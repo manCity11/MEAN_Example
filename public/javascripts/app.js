@@ -5,9 +5,12 @@ angular.module('postApp', [
 	'post.model',
 	'post.controllers',
 	'token.model',
-	'connexion.controllers'
+	'connexion.controllers',
+	'apiInterceptor.model'
 ])
-	.config(function($stateProvider, $urlRouterProvider, $qProvider){
+	.config(function($stateProvider, $urlRouterProvider, $httpProvider, $qProvider){		
+		$httpProvider.interceptors.push('APIInterceptor');
+
 		//for modal errors
 		$qProvider.errorOnUnhandledRejections(false);
 		

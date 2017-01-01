@@ -9,8 +9,8 @@ connexionCtrl
 				var modalInstance = $uibModal.open({
 					templateUrl: 'html/login.html',
 					controller: function($scope, $rootScope, $uibModalInstance, Token){
-						$scope.cancel = function(){
-							$uibModalInstance.dismiss('cancel');
+						$scope.close = function(){
+							$uibModalInstance.close();
 						};
 
 						$scope.login = function(){
@@ -21,7 +21,7 @@ connexionCtrl
 							user.$create().then(function(data){
 								if(data.token){
 									$rootScope.token = data.token;
-									$scope.cancel();
+									$uibModalInstance.close();
 								}
 							}, function(error){
 								console.log("Authentication failed");

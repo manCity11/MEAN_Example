@@ -1,12 +1,14 @@
 angular.module('post.model', ['ngResource'])
-	.factory('Post', function($resource){
+	.factory('Post', function($resource, $rootScope){
 		return $resource('/api/post/:slug/', {slug: '@slug'},
 		{
 			'create': {
 				headers: {'Content-Type': 'application/json'},
 				method: 'POST'
 			},
-			'delete': {method: 'DELETE'},
+			'delete': {
+				method: 'DELETE'
+			},
 			'get': {method: 'GET'},
 			'query': {
 				url: '/api/posts/',

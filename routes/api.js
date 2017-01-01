@@ -2,6 +2,8 @@ var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
 
+var config = require('../config/database');
+
 //Controllers
 var authenticateCtrl = require('../controllers/authenticateCtrl');
 var postCtrl = require('../controllers/postCtrl');
@@ -30,6 +32,7 @@ router.use(function(req, res, next){
 		});
 	}
 	else{
+		console.log(req.headers);
 		res.status(500).json({
 			message: 'Please send a token'
 		});
@@ -40,6 +43,6 @@ router.delete('/user/:username', userCtrl.userDelete);
 
 router.post('/post/create', postCtrl.postCreate);
 router.put('/post/:slug', postCtrl.postUpdate);
-router.delete('post/:slug', postCtrl.postDelete);
+router.delete('/post/:slug', postCtrl.postDelete);
 
 module.exports = router;
